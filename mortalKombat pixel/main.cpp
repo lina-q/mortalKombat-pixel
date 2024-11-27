@@ -23,18 +23,18 @@ int main()
 
     std::vector<sf::Texture> frames;
     frames.push_back(sf::Texture());
-    for (int i = 0; i < 164; ++i)
+    for(int i = 0; i < 164; ++i)
     {
         frames.push_back(sf::Texture());
         frames[i].loadFromFile("load/load-" + to_string(i) + ".png");
 
-
+        
     }
     std::vector<sf::Texture> clips;
     clips.push_back(sf::Texture());
     for (int i = 0; i < 8; ++i)
     {
-        if (i < 10)
+        if(i < 10)
         {
             clips.push_back(sf::Texture());
             clips[i].loadFromFile("perehod/perehod_00" + to_string(i) + ".png");
@@ -83,7 +83,7 @@ int main()
     {
         throw std::runtime_error("IMG is not open");
     }
-
+    
 
 
     sf::Texture texturePlace4;
@@ -118,7 +118,7 @@ int main()
         throw std::runtime_error("Choice image is not open");
     }
 
-
+    
 
 
 
@@ -134,7 +134,7 @@ int main()
     sf::Sprite spriteSelectCharacter(textureSelectCharacter);
 
 
-
+    
 
     //******************* перс1 ******************************//
 
@@ -177,7 +177,7 @@ int main()
 
     sf::Sprite spR1(textureRightCh1[0]);
     spR1.setScale(0.7f, 0.7f);
-
+    
     sf::Sprite spR2(textureRightCh1[1]);
     spR2.setScale(0.6f, 0.6f);
 
@@ -198,7 +198,7 @@ int main()
 
 
 
-
+    
 
     //******************* перс2 ******************************//
 
@@ -260,7 +260,7 @@ int main()
 
 
 
-
+    
     //******************* перс3 ******************************//
 
     sf::Texture textureCh3;
@@ -283,7 +283,7 @@ int main()
 
     spriteCh3.setTexture(textureCh3);
     spriteCh3.scale(2, 2);
-    spriteCh3.setPosition(80, 345 + 100);
+    spriteCh3.setPosition(80, 345+100);
 
 
     spriteCh3Mir.setTexture(textureCh3Mir);
@@ -343,7 +343,7 @@ int main()
 
 
     spriteCh4.setTexture(textureCh4);
-    spriteCh4.scale(1.9, 1.9);
+    spriteCh4.scale(1.9,1.9);
     spriteCh4.setPosition(140, 395);
 
 
@@ -388,7 +388,7 @@ int main()
 
 
 
-
+   
     sf::Text healthOne;
     sf::Font txtOne;
     if (!txtOne.loadFromFile("arial.ttf")) {
@@ -420,7 +420,7 @@ int main()
     bool CharacterSelected = false; bool MouseClick = false;
 
     bool Ch1 = false, Ch2 = false, Ch3 = false, Ch4 = false;
-
+    
 
     int h1 = 100, h2 = 100;
 
@@ -431,26 +431,26 @@ int main()
     {
         menuWithPlay(window, spriteMenu, textureMenu, spritePlay, texturePlay);
 
-        if (isMainMenuVisible)
+        if(isMainMenuVisible)
         {
             animationAfterPlay(window, clips);
             backgroundSelection(window, spriteChoice, textureChoice,
                 map1, map2, map3, map4, MouseClick);
-
-            if (MouseClick)
+            
+            if(MouseClick)
             {
-
+                
                 sf::sleep(sf::milliseconds(300));
                 ChoiceCharacter(window, spriteSelectCharacter, textureSelectCharacter, CharacterSelected, Ch1, Ch2, Ch3, Ch4);
 
                 if (CharacterSelected)
                 {
                     loading(window, frames2);
-
-
+                    
+                    
                     if (map1)
                     {
-
+                        
                         loading(window, frames2);
                         sf::sleep(sf::milliseconds(300));
                         playInMap4(window, spritePlace1, texturePlace1);
@@ -481,7 +481,7 @@ int main()
                                 spriteCh1Mir, spriteCh2Mir, spriteCh3Mir, spriteCh4Mir,
                                 Ch1, Ch2, Ch3, Ch4, h1, h2, healthOne, healthTwo);
                         }
-
+                        
                         else
                         {
                             if (h1 == 0) { winner_two(window, txt); }
@@ -617,11 +617,11 @@ int main()
                 }
             }
 
-
+            
 
         }
 
-
+        
 
         window.display();
     }
